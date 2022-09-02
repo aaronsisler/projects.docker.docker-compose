@@ -12,9 +12,7 @@ const HOST = "0.0.0.0";
 const app = express();
 app.get("/", async (_req, res) => {
   const internalResponse = await axios.get(`http://${HOST}:${PRIVATE_PORT}`);
-  console.log(internalResponse.data);
   res.send(internalResponse.data);
-  // res.send("Hello World From Exposed!");
 });
 
 app.listen(EXPOSED_PORT, HOST);
