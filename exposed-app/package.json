@@ -1,0 +1,14 @@
+{
+  "name": "projects.docker.docker-compose.exposed-app",
+  "version": "1.0.0",
+  "description": "Node.js on Docker",
+  "author": "Aaron Sisler",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "express": "^4.18.1"
+  }
+}

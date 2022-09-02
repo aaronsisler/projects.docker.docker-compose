@@ -1,0 +1,14 @@
+{
+  "name": "projects.docker.docker-compose",
+  "version": "1.0.0",
+  "description": "Node.js on Docker",
+  "author": "Aaron Sisler",
+  "main": "server.js",
+  "scripts": {
+    "build:private": "docker build ./private-app -t aaronsisler/private-app",
+    "build:exposed": "docker build ./exposed-app -t aaronsisler/exposed-app"
+  },
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
