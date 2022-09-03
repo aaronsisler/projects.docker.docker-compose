@@ -1,15 +1,15 @@
 services:
   private-app:
-    container_name: privateAppUrl
     build: ./private-app
-    expose:
-      - 9090
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://private-app:9090/health"]
+      interval: 10s
+      timeout: 10s
+      retries: 3
   exposed-app:
     depends_on:
-      - "private-app"
+      private-app:
+        condition: service_healthy
     build: ./exposed-app
     ports:
-      - "4242:8080"
-      - "8080:8080"
-    environment:
-      PRIVATE_APP_URL: "privateAppUrl"
+      - 4242:8080
