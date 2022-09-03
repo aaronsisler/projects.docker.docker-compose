@@ -1,0 +1,15 @@
+services:
+  private-app:
+    container_name: privateAppUrl
+    build: ./private-app
+    expose:
+      - 9090
+  exposed-app:
+    depends_on:
+      - "private-app"
+    build: ./exposed-app
+    ports:
+      - "4242:8080"
+      - "8080:8080"
+    environment:
+      PRIVATE_APP_URL: "privateAppUrl"
